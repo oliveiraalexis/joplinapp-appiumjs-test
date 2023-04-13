@@ -1,0 +1,35 @@
+{
+  "name": "joplinapp-appiumjs-test",
+  "version": "1.0.0",
+  "description": "Joplin app test on Android using Appium JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliveiraalexis/joplinapp-appiumjs-test.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "appium"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliveiraalexis/joplinapp-appiumjs-test/issues"
+  },
+  "homepage": "https://github.com/oliveiraalexis/joplinapp-appiumjs-test#readme",
+  "dependencies": {
+    "@wdio/cli": "^8.8.2"
+  },
+  "devDependencies": {
+    "@wdio/appium-service": "^8.8.2",
+    "@wdio/local-runner": "^8.8.2",
+    "@wdio/mocha-framework": "^8.8.0",
+    "@wdio/spec-reporter": "^8.8.0"
+  },
+  "type": "module"
+  
+}
