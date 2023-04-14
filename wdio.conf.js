@@ -1,6 +1,7 @@
-import { path } from "path";
+//import path from "path";
+import path from 'path';
 
-exports.config = {
+export const config = {
     //
     // ====================
     // Runner Configuration
