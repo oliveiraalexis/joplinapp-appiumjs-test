@@ -1,8 +1,13 @@
 import Notebook from '../pages/notebook.page.js'
 
-describe('Notebook', async () => {
-    it('Open Sidebar', async () => {
-        let notebook = new Notebook();
+describe('Notebook tests', async () => {
+    let notebook = new Notebook();
+
+    it('Create new note', async () => {
+        await notebook.createNote();
+    });
+    
+    it('Open sidebar', async () => {
         await notebook.openMenu();
     });
 });
