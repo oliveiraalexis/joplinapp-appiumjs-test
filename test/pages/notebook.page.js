@@ -47,4 +47,13 @@ export default class Page {
         await $(SORT_BY_TITLE_BUTTON).click();
         await $("//*[@text='6. Note title test 1']").waitForExist({ timeout: 6000 });
     }
+
+    async searchNote(){
+        await $(SEARCH_BUTTON).waitForExist({ timeout: 6000 });
+        await $(SEARCH_BUTTON).click();
+    }
+
+    async openNote(){
+
+    }
 }
