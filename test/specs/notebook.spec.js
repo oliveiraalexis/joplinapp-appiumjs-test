@@ -6,6 +6,10 @@ describe('Notebook tests', async () => {
     it('Create new note', async () => {
         await notebook.createNote();
     });
+
+    it('Sort notes by title', async () => {
+        await notebook.sortNoteByTitle();
+    });
     
     it('Open sidebar', async () => {
         await notebook.openMenu();

@@ -1,14 +1,15 @@
 const TITLE = "//*[@text='Welcome! (Mobile)']";
 const MENU_BUTTON = "//*[@content-desc='Sidebar, Show/hide the sidebar']";
 const SYNCHRONIZE_BUTTON = "//*[@text='Synchronize']";
-const SEARCH_BUTTON = "//*[@content-desc='Search']";
-const FILTER_BUTTON = "//*[@content-desc='Sort notes by']";
 const ADD_NEW_BUTTON = "//*[@content-desc='Add new']";
 const ADD_NOTE_BUTTON = "//*[@content-desc='New note']";
 const ALLOW_DEVICE_LOCATION_BUTTON = "//*[@text='ALLOW']";
 const ADD_NOTE_TITLE_INPUT = "//*[@text='Add title']";
 const ADD_NOTE_BODY_INPUT = "//*[@text='Add body']";
 const BACK_LIST_NOTES_BUTTON = "//*[@content-desc='Back']";
+const SORT_BUTTON = "//*[@content-desc='Sort notes by']";
+const SORT_BY_TITLE_BUTTON = "//*[@text='Title']";
+const SEARCH_BUTTON = "//*[@content-desc='Search']";
 
 export default class Page {
     constructor(){
@@ -37,5 +38,13 @@ export default class Page {
         await $(BACK_LIST_NOTES_BUTTON).waitForExist({ timeout: 6000 });
         await $(BACK_LIST_NOTES_BUTTON).click();
         await $(TITLE).waitForExist({ timeout: 6000 });
+    }
+
+    async sortNoteByTitle(){
+        await $(SORT_BUTTON).waitForExist({ timeout: 6000 });
+        await $(SORT_BUTTON).click();
+        await $(SORT_BY_TITLE_BUTTON).waitForExist({ timeout: 6000 });
+        await $(SORT_BY_TITLE_BUTTON).click();
+        await $("//*[@text='6. Note title test 1']").waitForExist({ timeout: 6000 });
     }
 }
