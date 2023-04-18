@@ -6,6 +6,7 @@ const ADD_NOTE_BUTTON = "//*[@content-desc='New note']";
 const ALLOW_DEVICE_LOCATION_BUTTON = "//*[@text='ALLOW']";
 const ADD_NOTE_TITLE_INPUT = "//*[@text='Add title']";
 const ADD_NOTE_BODY_INPUT = "//*[@text='Add body']";
+const NEW_NOTE_TITLE = "6. Note title test 1";
 const BACK_LIST_NOTES_BUTTON = "//*[@content-desc='Back']";
 const SORT_BUTTON = "//*[@content-desc='Sort notes by']";
 const SORT_BY_TITLE_BUTTON = "//*[@text='Title']";
@@ -30,7 +31,7 @@ export default class Page {
         await $(ALLOW_DEVICE_LOCATION_BUTTON).waitForExist({ timeout: 6000 });
         await $(ALLOW_DEVICE_LOCATION_BUTTON).click();
         await $(ADD_NOTE_TITLE_INPUT).waitForExist({ timeout: 6000 });
-        await $(ADD_NOTE_TITLE_INPUT).setValue("6. Note title test 1");
+        await $(ADD_NOTE_TITLE_INPUT).setValue(NEW_NOTE_TITLE);
         await $(ADD_NOTE_BODY_INPUT).waitForExist({ timeout: 6000 });
         await $(ADD_NOTE_BODY_INPUT).setValue("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vel dignissim dolor, nec commodo enim. Suspendisse ultricies hendrerit sagittis. Sed hendrerit hendrerit nunc. In ac elit porta, pulvinar mauris eu, consequat justo. Maecenas et augue eget urna gravida fermentum at ut magna. Proin mattis mauris et vestibulum auctor. Pellentesque pharetra rhoncus nulla in ullamcorper. Cras vel dignissim sem. Mauris fringilla congue commodo. Donec et arcu laoreet justo elementum euismod. Vivamus consequat, elit in imperdiet finibus, nisl mauris iaculis nibh, et volutpat nibh nibh id odio.");
         await $(BACK_LIST_NOTES_BUTTON).waitForExist({ timeout: 6000 });
@@ -45,7 +46,7 @@ export default class Page {
         await $(SORT_BUTTON).click();
         await $(SORT_BY_TITLE_BUTTON).waitForExist({ timeout: 6000 });
         await $(SORT_BY_TITLE_BUTTON).click();
-        await $("//*[@text='6. Note title test 1']").waitForExist({ timeout: 6000 });
+        await $(`//*[@text=${NEW_NOTE_TITLE}]`).waitForExist({ timeout: 6000 });
     }
 
     async searchNote(){
@@ -54,6 +55,5 @@ export default class Page {
     }
 
     async openNote(){
-
     }
 }
