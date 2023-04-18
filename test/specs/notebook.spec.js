@@ -3,6 +3,10 @@ import Notebook from '../pages/notebook.page.js'
 describe('Notebook tests', async () => {
     let notebook = new Notebook();
 
+    it('Open sidebar', async () => {
+        await notebook.openMenu();
+    });
+
     it('Create new note', async () => {
         await notebook.createNote();
     });
@@ -10,8 +14,8 @@ describe('Notebook tests', async () => {
     it('Sort notes by title', async () => {
         await notebook.sortNoteByTitle();
     });
-    
-    it('Open sidebar', async () => {
-        await notebook.openMenu();
+
+    it('Search note', async () => {
+        await notebook.searchNote();
     });
 });

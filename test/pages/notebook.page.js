@@ -1,5 +1,6 @@
 const TITLE = "//*[@text='Welcome! (Mobile)']";
 const MENU_BUTTON = "//*[@content-desc='Sidebar, Show/hide the sidebar']";
+const ALL_NOTES_BUTTON = "//*[@text='All notes']";
 const SYNCHRONIZE_BUTTON = "//*[@text='Synchronize']";
 const ADD_NEW_BUTTON = "//*[@content-desc='Add new']";
 const ADD_NOTE_BUTTON = "//*[@content-desc='New note']";
@@ -11,6 +12,8 @@ const BACK_LIST_NOTES_BUTTON = "//*[@content-desc='Back']";
 const SORT_BUTTON = "//*[@content-desc='Sort notes by']";
 const SORT_BY_TITLE_BUTTON = "//*[@text='Title']";
 const SEARCH_BUTTON = "//*[@content-desc='Search']";
+const SEARCH_EDIT_TEXT = ".android.widget.EditText"
+const SEARCH_RESULT = ".android.view.ViewGroup"
 
 export default class Page {
     constructor(){
@@ -21,6 +24,7 @@ export default class Page {
         await $(MENU_BUTTON).waitForExist({ timeout: 6000 });
         await $(MENU_BUTTON).click();
         await $(SYNCHRONIZE_BUTTON).waitForExist({ timeout: 6000 });
+        await $(ALL_NOTES_BUTTON).click();
     }
 
     async createNote(){
@@ -46,12 +50,18 @@ export default class Page {
         await $(SORT_BUTTON).click();
         await $(SORT_BY_TITLE_BUTTON).waitForExist({ timeout: 6000 });
         await $(SORT_BY_TITLE_BUTTON).click();
-        await $(`//*[@text=${NEW_NOTE_TITLE}]`).waitForExist({ timeout: 6000 });
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).waitForExist({ timeout: 6000 });
     }
 
     async searchNote(){
         await $(SEARCH_BUTTON).waitForExist({ timeout: 6000 });
         await $(SEARCH_BUTTON).click();
+        await $(SEARCH_EDIT_TEXT).setValue("6.");
+        await $(SEARCH_EDIT_TEXT).pressKeyCode(66); //press ENTER
+        await $(SEARCH_RESULT).waitForExist({ timeout: 6000 });
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).click();
+        await browser.pause(6000);
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).waitForExist({ timeout: 6000 });
     }
 
     async openNote(){
