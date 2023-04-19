@@ -18,4 +18,9 @@ describe('Notebook tests', async () => {
     it('Search note', async () => {
         await notebook.searchNote();
     });
+
+    it('Open note', async () => {
+        await notebook.openNote();
+    });
+    
 });

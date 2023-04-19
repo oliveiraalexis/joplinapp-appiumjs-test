@@ -15,13 +15,13 @@ const SEARCH_BUTTON = "//*[@content-desc='Search']";
 const SEARCH_EDIT_TEXT = ".android.widget.EditText"
 const SEARCH_RESULT = ".android.view.ViewGroup"
 
-export default class Page {
+export default class Notebook {
     constructor(){
 
     }
 
     async openMenu(){
-        await $(MENU_BUTTON).waitForExist({ timeout: 6000 });
+        await $(MENU_BUTTON).waitForExist({ timeout: 8000 });
         await $(MENU_BUTTON).click();
         await $(SYNCHRONIZE_BUTTON).waitForExist({ timeout: 6000 });
         await $(ALL_NOTES_BUTTON).click();
@@ -59,11 +59,12 @@ export default class Page {
         await $(SEARCH_EDIT_TEXT).setValue("6.");
         await $(SEARCH_EDIT_TEXT).pressKeyCode(66); //press ENTER
         await $(SEARCH_RESULT).waitForExist({ timeout: 6000 });
-        await $(`//*[@text='${NEW_NOTE_TITLE}']`).click();
-        await browser.pause(6000);
-        await $(`//*[@text='${NEW_NOTE_TITLE}']`).waitForExist({ timeout: 6000 });
     }
 
     async openNote(){
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).waitForExist({ timeout: 6000 });
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).click();
+        await browser.pause(6000);
+        await $(`//*[@text='${NEW_NOTE_TITLE}']`).waitForExist({ timeout: 6000 });
     }
 }
